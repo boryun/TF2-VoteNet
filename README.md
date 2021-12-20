@@ -54,7 +54,7 @@ To evaluate on ScanNet, run `python -B test.py --gpus 0 --dataset scannet --batc
 
 # Eval Result
 
-The official implementation set `per_class_proposal` flags default to True during training and testing (which is denote as `keep_all_classes` in this project). That is, for each prediction whih objectness greater than specific threshold, instead of assgn it to the semantic class with maximum predict probs, we make it a prediction to all classes with class score equal to `objectness * class_prob` (i.e. split each prediction into num_class proposals).
+The official implementation set `per_class_proposal` flags default to True during training and testing (which is denote as `keep_all_classes` in this project). That is, for each prediction with objectness greater than specific threshold, instead of assgn it to the semantic class with maximum predict probs, we make it a prediction to all classes with class score equal to `objectness * class_prob` (i.e. split each prediction into num_class proposals).
 
 The result under each circumstance is listed following.
 
