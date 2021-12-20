@@ -1,6 +1,6 @@
 # OverAll
 
-This is a TensorFlow2 implementation of [VoteNet](https://openaccess.thecvf.com/content_ICCV_2019/html/Qi_Deep_Hough_Voting_for_3D_Object_Detection_in_Point_Clouds_ICCV_2019_paper.html), the official PyTorch implementation is [https://github.com/facebookresearch/votenet](https://github.com/facebookresearch/votenet), I made some simplification and make it available for TF2.
+This is a TensorFlow2 implementation of [VoteNet](https://openaccess.thecvf.com/content_ICCV_2019/html/Qi_Deep_Hough_Voting_for_3D_Object_Detection_in_Point_Clouds_ICCV_2019_paper.html), the official PyTorch implementation is [facebookresearch/votenet](https://github.com/facebookresearch/votenet), I made some simplification and make it available for TF2.
 
 With almost the same training configuration, I got consistent results on ScanNet and SUNRGBD datasets (mean AP 60.6@0.25 and 33.6@0.5 on ScanNet, 57.9@0.25 and 31.7@0.5 on SUNRGBD, see [Eval Result](#eval-result) for more detail).
 
