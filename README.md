@@ -6,7 +6,7 @@ With almost the same training configuration, I got consistent results on ScanNet
 
 # Train & Eval
 
-## environment
+## Environment
 
 The following env config is tested with python-3.7.9 and CUDA-10.1:
 
