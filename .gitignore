@@ -1,0 +1,21 @@
+# IDE configs
+.vscode
+
+# dataset folder
+datasets/*
+
+# logs folder
+logs/*
+
+# Python stuff
+**/__pycache__
+
+# C extensions
+*.o
+*.so
+**/build
+
+# cats and dogs
+**/local_*
+**/reference
+lab.py
