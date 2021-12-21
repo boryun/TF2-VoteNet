@@ -11,8 +11,6 @@ With almost the same training configuration, I got consistent results on ScanNet
 The following env config is tested with python-3.7.9 and CUDA-10.1:
 
 ``` text
-python=3.7.9
-CUDA-10.1
 tensorflow==2.3.1
 plyfile
 scipy
@@ -48,13 +46,13 @@ The CUDA Ops is modified from [charlesq34/pointnet2](https://github.com/charlesq
 
 ## Train & Eval
 
-To train on ScanNet, run `python -B train.py --gpus 0 --dataset scannet --batch_size 16 --log_dir logs/scannet --verbose_interval 15 --keep_all_classes`, to train on SUNRGBD, run `python -B train.py --gpus 0 --dataset sunrgbd --batch_size 16 --log_dir logs/sunrgbd --verbose_interval 45`.
+To train on ScanNet, run `python -B train.py --gpus 0 --dataset scannet --batch_size 16 --log_dir logs/scannet --verbose_interval 15 --keep_all_classes`, to train on SUNRGBD, run `python -B train.py --gpus 0 --dataset sunrgbd --batch_size 16 --log_dir logs/sunrgbd --verbose_interval 45 --keep_all_classes`.
 
 To evaluate on ScanNet, run `python -B test.py --gpus 0 --dataset scannet --batch_size 32 --log_dir logs/scannet --keep_all_classes`, change `--dataset` and `--log_dir` args to evaluate on SUNRGBD.
 
 # Eval Result
 
-The official implementation set `per_class_proposal` flags default to True during training and testing (which is denote as `keep_all_classes` in this project). That is, for each prediction with objectness greater than specific threshold, instead of assgn it to the semantic class with maximum predict probs, we make it a prediction to all classes with class score equal to `objectness * class_prob` (i.e. split each prediction into num_class proposals).
+The official implementation set `per_class_proposal` flags default to True during training and testing (which is denoted as `keep_all_classes` in this project). That is, for each prediction with objectness greater than a specific threshold, instead of assigning it to the semantic class with maximum predict probs, we make it a prediction to all classes with class score equal to `objectness * class_prob` (i.e. split each prediction into num_class proposals). Which is a little tricky but could improve meanAP about 1~2 points.
 
 The result under each circumstance is listed following.
 
