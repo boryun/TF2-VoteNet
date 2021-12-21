@@ -2,7 +2,6 @@ import os
 import numpy as np
 import plyfile
 from scipy.spatial import ConvexHull, Delaunay
-from utils.custom_op import grid_subsampling, nearest_neighbors  #! custom_op, inplace build required
 
 
 # **************** #
@@ -317,41 +316,6 @@ def random_sampling(*features, target_num):
         sampled_features.append(feature[sample_idx, ...])
     
     return sampled_features if len(features) > 1 else sampled_features[0]
-
-
-def grid_downsampling(points, features=None, labels=None, sampleDl=0.1):
-    """
-    Process grid subsampling on given point cloud. The subsampled point and
-    features is calcualted by taking the mean values of points lays in the 
-    same voxel, the label appeared most times is taken as the corresponding
-    label of a voxel.
-
-    Args:
-        points: [N, 3], N points with xyz coordinate.
-        features: [N, d], features of N points.
-        classes: [N,] or [N, l], label(s) of each points.
-        sampleDl: Side length of voxel.
-    Return:
-        subsampled_points: the subsampled points.
-        subsampled_features: if features is provided.
-        subsampled_labels: if labels is provided.
-    """
-    return grid_subsampling.compute(points, features=features, classes=labels, sampleDl=sampleDl)
-
-
-def knn_search(points, queries, K):
-    """
-    Get K-NN points for each query points within global point cloud.
-
-    Args:
-        points: [B, N, 3] numpy array, global point cloud.
-        queries: [B, M, 3] numpy array, M queries for each batch.
-        K: num neighbours.
-    Return:
-        nn_idx: [B, M, K] numpy array, K-NN index of each queries.
-    """
-    nn_idx = nearest_neighbors.knn_batch(points, queries, K, omp=True)
-    return nn_idx
 
 
 # ******************** #
